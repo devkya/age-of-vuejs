@@ -30,13 +30,22 @@ new Vue({
 });
 ```
 
-- Vue Component
-  ![Vue_component](https://vuejs.org/assets/components.7fbb3771.png)
+## Component
 
-  - 화면의 영역을 구분하여 개발할 수 있는 뷰의 기능 -> 재사용성이 올라감
+![Vue_component](https://vuejs.org/assets/components.7fbb3771.png)
+
+- 화면의 영역을 구분하여 개발할 수 있는 뷰의 기능 -> 재사용성이 올라감
 
 - Component Comunication
   ![Component_comunication](https://joshua1988.github.io/vue-camp/assets/img/component-communication.2bb1d838.png)
+
   - N방향 통신에서는 데이터의 흐름을 파악하기 어려움
   - 컴포넌트 통신 방식의 규칙이 생겼을 때 흐름을 파악하기 쉬움
-  - props
+  - props vs event(emit)
+
+- 같은 레벨에서 컴포넌트 통신 방법
+  - child component -> root component로 event 전달
+  - root component data 할당
+  - 전달하고자 하는 하위 컴포넌트 props로 전달
+
+## Router
