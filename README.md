@@ -36,7 +36,7 @@ new Vue({
 
 - 화면의 영역을 구분하여 개발할 수 있는 뷰의 기능 -> 재사용성이 올라감
 
-- Component Comunication
+- Component Comunication  
   ![Component_comunication](https://joshua1988.github.io/vue-camp/assets/img/component-communication.2bb1d838.png)
 
   - N방향 통신에서는 데이터의 흐름을 파악하기 어려움
