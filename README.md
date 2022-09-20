@@ -172,10 +172,11 @@ getData: function () {
           },
 ```
 
-arrow function을 사용했을 때는 data binding이 잘 되지만 function을 사용했을 때는 data binding이 되지 않음.
+arrow function을 사용했을 때는 data 할당이 잘 되지만 function을 사용했을 때는 data 할당이 되지 않음.
 
 [arrow func vs func ](https://hhyemi.github.io/2021/06/09/arrow.html)
-요약 : 화살표 함수와 일반 함수의 차이로 발생하는 문제로, 아래 코드를 이해하면 될듯함
+요약 : 화살표 함수와 일반 함수의 차이로 발생하는 문제로, 아래 코드를 이해하면 될듯함  
+단, arrow function에서는 this 값을 변경할 수 없다 => 직접 확인해보기
 
 ```javascript
 function fun() {
@@ -213,3 +214,10 @@ JS의 비동기 처리 패턴 중 가장 최근에 나온 문법
 ```
 
 ```
+
+## Watch vs Computed
+
+[링크](https://vuejs.org/guide/essentials/computed.html#ad)
+
+`computed` : 값을 계산  
+`watch` : 부담스로운 로직, 데이터 요청에 적합함
