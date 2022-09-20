@@ -70,3 +70,66 @@ new Vue({
   - v-bind와 함께 사용하면 동적으로 경로를 만들 수 있음
   - to="main/path" => current url에 path가 붙음
   - to="/main/detail" => default url에 path가 붙음
+
+## navigation guard
+
+[링크](https://joshua1988.github.io/web-development/vuejs/vue-router-navigation-guards/)
+
+뷰 라우터로 특정한 URL에 접근할 때 해당 URL의 접근을 막는 방법  
+예를 들어, 사용자의 인증 정보가 없으면 특정 페이지에 접근하지 못하게 할 때 사용하는 기술
+
+1. 애플리케이션 전역에서 동작하는 전역 가드
+2. 특정 URL에서만 동작하는 라우터 가드
+3. 라우터 컴포넌트 안에 정의하는 컴포넌트 가드
+
+### 전역 가드
+
+라우터 인스턴스를 참조하는 객체로 설정
+
+```JavaScript
+var router = new VueRouter();
+// router 변수 아래에서 호출
+router.beforeEach(function (to, from, next){
+  // to : 이동할 url
+  // from : 현재 url
+  // next : to에서 지정한 url로 이동하기 위해 꼭 호출해야 하는 함수
+  // 전역 가드를 설정하면 대기 상태가 됨 -> next() 호출로 이동
+}
+)
+```
+
+### 라우터 가드
+
+```JavaScript
+var router = new VueRouter({
+  routes : [
+    path : "/login",
+    component : Login,
+    beforeEnter : function(to, from, next){
+      // 인증 값 검증 로직 추가
+    }
+  ]
+})
+```
+
+### 컴포넌트 가드
+
+```JavaScript
+const Login = {
+  template : '<p>Login Component</p>',
+  beforeRouteEnter (to, from, next) {
+    // login 컴포넌트가 화면에 표시되기 전에 수행될 로직
+    // Login 컴포넌트는 아직 생성되지 않은 시점
+  },
+  beforeRouteUpdate (to, from, next) {
+    // login 컴포넌트가 변경될 때 수행될 로직
+    // this 로 Login 컴포넌트를 접근할 수 있음
+  },
+  beforeRouteLeave (to, from, next) {
+    // login 컴포넌트를 화면에 표시한 url 값이 변경되기 직전의 로직
+    // this 로 login 컴포넌트를 접근할 수 있음
+  }
+}
+```
+
+## Axios
