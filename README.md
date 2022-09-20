@@ -133,3 +133,83 @@ const Login = {
 ```
 
 ## Axios
+
+[링크](https://github.com/axios/axios)
+
+뷰에서 권고하는 HTTP 통신 라이브러리  
+Promise 기반의 HTTP 통신 라이브러리이며 상대적으로 문서화 & API가 잘되어 있음  
+async & await 비동기 처리 방법
+
+- 궁금증
+
+```javascript
+// 1번 : .then 을 화살표 함수로 작성함
+getData: function () {
+            axios
+              .get("https://jsonplaceholder.typicode.com/users")
+              .then((res) => {
+                console.log("GET() ... : ", res);
+                this.users = res.data;
+              })
+              .catch(function (error) {
+                console.log("ERR() ... : ", error);
+              });
+          }
+```
+
+```javascript
+// 2번 : .then 을 function으로 작성함
+getData: function () {
+            axios
+              .get("https://jsonplaceholder.typicode.com/users")
+              .then(function (response) {
+                console.log("GET() ... : ", res);
+                this.users = res.data;
+              })
+              .catch(function (error) {
+                console.log("ERR() ... : ", error);
+              });
+          },
+```
+
+arrow function을 사용했을 때는 data binding이 잘 되지만 function을 사용했을 때는 data binding이 되지 않음.
+
+[arrow func vs func ](https://hhyemi.github.io/2021/06/09/arrow.html)
+요약 : 화살표 함수와 일반 함수의 차이로 발생하는 문제로, 아래 코드를 이해하면 될듯함
+
+```javascript
+function fun() {
+  this.name = "하이";
+  return {
+    name: "바이",
+    speak: function () {
+      console.log(this.name);
+    },
+  };
+}
+
+function arrFun() {
+  this.name = "하이";
+  return {
+    name: "바이",
+    speak: () => {
+      console.log(this.name);
+    },
+  };
+}
+
+const fun1 = new fun();
+fun1.speak(); // 바이
+
+const fun2 = new arrFun();
+fun2.speak(); // 하이
+```
+
+### async & await
+
+[링크](https://joshua1988.github.io/web-development/javascript/js-async-await/)
+JS의 비동기 처리 패턴 중 가장 최근에 나온 문법
+
+```
+
+```
