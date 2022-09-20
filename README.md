@@ -51,3 +51,22 @@ new Vue({
 - 전달하고자 하는 하위 컴포넌트 props로 전달
 
 ## Router
+
+- vue.js 에서 페이지 간 이동을 위한 라이브러리
+- 페이지 이동할 때 url이 변경되면 변경된 요소의 영역에서 컴포넌트를 갱신
+  - SPA특징
+  - DOM을 새로 갱신하는 것은 아님
+
+`<router-view>`
+
+- 페이지 표시 태그
+- url에 따른 컴포넌트가 화면에 그려지는 영역
+
+`<router-link to="path">`
+
+- 컴파일 시, a tag로 변환
+- to 속성
+  - to 속성 값의 경로로 이동
+  - v-bind와 함께 사용하면 동적으로 경로를 만들 수 있음
+  - to="main/path" => current url에 path가 붙음
+  - to="/main/detail" => default url에 path가 붙음
